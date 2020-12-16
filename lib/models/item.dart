@@ -1,9 +1,9 @@
 class Item {
-  int id, categoria;
-  String titulo, descricao, senha;
+  int id;
+  String titulo, descricao, senha, username, url, anotacao;
 
-  Item({this.id, this.titulo, this.descricao,
-    this.categoria, this.senha});
+  Item({this.id, this.titulo, this.descricao, this.senha, this.username,
+  this.url, this.anotacao});
 
   Map<String, dynamic> toMap() {
     return {
@@ -11,7 +11,9 @@ class Item {
       'titulo': titulo,
       'descricao': descricao,
       'senha': senha,
-      'categoria': categoria
+      'username': username,
+      'url': url,
+      'anotacao': anotacao,
     };
   }
 
@@ -20,6 +22,8 @@ class Item {
     titulo = map["titulo"];
     descricao = map["descricao"];
     senha = map["senha"];
-    categoria = map["categoria"];
+    username = map["username"];
+    url = map["url"];
+    anotacao = map["anotacao"];
   }
 }

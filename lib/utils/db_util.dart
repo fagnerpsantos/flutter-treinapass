@@ -13,16 +13,10 @@ class DbUtil {
     );
   }
   static void _createDb(sql.Database db) {
-    db.execute("""CREATE TABLE categoria (id INTEGER PRIMARY KEY AUTOINCREMENT, 
-        nome VARCHAR(50))"""
-    );
     db.execute("""CREATE TABLE item (id INTEGER PRIMARY KEY AUTOINCREMENT, 
-        titulo VARCHAR(50), descricao VARCHAR(50), senha VARCHAR(80), categoria INTEGER,
-        FOREIGN KEY (categoria) REFERENCES categoria (id) ON DELETE NO ACTION ON UPDATE NO ACTION)"""
+        titulo VARCHAR(50), descricao VARCHAR(50), senha VARCHAR(80), 
+        username VARCHAR(50), url VARCHAR(255), anotacao TEXT)"""
     );
-    db.execute(""" INSERT INTO categoria (id, nome) VALUES (1, "Senhas")""");
-    db.execute(""" INSERT INTO categoria (id, nome) VALUES (2, "Anotações")""");
-    db.execute(""" INSERT INTO categoria (id, nome) VALUES (3, "Outros")""");
   }
   static Future<void> insertData(String table, Map<String, Object> dados) async{
     final db = await DbUtil.database();

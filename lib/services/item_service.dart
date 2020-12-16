@@ -1,11 +1,9 @@
 import 'package:treina_pass/models/item.dart';
-import 'package:treina_pass/services/categoria_service.dart';
 import 'package:treina_pass/utils/db_util.dart';
 
 
 class ItemService {
   List<Item> _itemList = [];
-  CategoriaService cs = CategoriaService();
 
   Future<List> getAllItens() async {
     final dataList = await DbUtil.getData('item');
@@ -14,7 +12,9 @@ class ItemService {
       titulo: transacoes['titulo'],
       descricao: transacoes['descricao'],
       senha: transacoes['senha'],
-      categoria: transacoes['categoria'],
+      username: transacoes['username'],
+      url: transacoes['url'],
+      anotacao: transacoes['anotacao'],
     )).toList();
     return _itemList;
   }
@@ -25,7 +25,6 @@ class ItemService {
       titulo: item.titulo,
       descricao: item.descricao,
       senha: item.senha,
-      categoria: item.categoria
     );
     DbUtil.insertData('item', newItem.toMap());
 
@@ -37,24 +36,13 @@ class ItemService {
       titulo: item.titulo,
       descricao: item.descricao,
       senha: item.senha,
+      username: item.username,
+      url: item.url,
+      anotacao: item.anotacao,
     );
     String whereString = "id = ?";
     int rowId = id;
     List<dynamic> whereArguments = [rowId];
     DbUtil.editData("items", newItem.toMap(), whereString, whereArguments);
-  }
-
-  Future<List> getItensCategoria(int id) async {
-    String whereString = "categoria = ?";
-    int rowId = id;
-    List<dynamic> whereArguments = [rowId];
-    final dataList = await DbUtil.getDataWhere("item", whereString, whereArguments);
-    return dataList.map((transacoes) => Item(
-      id: transacoes['id'],
-      titulo: transacoes['titulo'],
-      descricao: transacoes['descricao'],
-      senha: transacoes['senha'],
-      categoria: transacoes['categoria'],
-    )).toList();
   }
 }

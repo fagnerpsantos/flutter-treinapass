@@ -16,7 +16,7 @@ Widget cardItem(BuildContext context, int index, Item item) {
               spreadRadius: 10,
               offset: Offset(0.0, 8.0))
         ],
-        color: kWhiteColor),
+        color: Colors.black12),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
@@ -33,15 +33,14 @@ Widget cardItem(BuildContext context, int index, Item item) {
                   item.titulo,
                   style: GoogleFonts.nunito(
                       fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                      color: item.categoria == 1 ? Colors.green : Colors.redAccent),
+                      fontWeight: FontWeight.w700),
                 ),
                 Text(
                   item.descricao,
                   style: GoogleFonts.nunito(
-                      fontSize: 14,
+                      fontSize: 13,
                       fontWeight: FontWeight.w700,
-                      color: kGreyColor),
+                      color: Colors.white),
                 ),
               ],
             )

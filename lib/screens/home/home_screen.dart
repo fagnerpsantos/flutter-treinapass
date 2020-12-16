@@ -14,9 +14,13 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      backgroundColor: Theme.of(context).backgroundColor,
       body: Body(),
-      floatingActionButton: buildSpeedDial(context),
+      floatingActionButton: buildFloatActionButton(context),
+      appBar: AppBar(
+        title: Text(
+          "TreinaPass"
+        ),
+      ),
     );
   }
 
