@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:treina_pass/models/usuario.dart';
+import 'package:treina_pass/screens/home/home_screen.dart';
+import 'package:treina_pass/services/usuario_service.dart';
 
 class CadastrarUsuarioScreen extends StatefulWidget {
   @override
@@ -6,6 +9,11 @@ class CadastrarUsuarioScreen extends StatefulWidget {
 }
 
 class _CadastrarUsuarioScreenState extends State<CadastrarUsuarioScreen> {
+  final _nomeController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _senhaController = TextEditingController();
+  UsuarioService us = UsuarioService();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,6 +71,7 @@ class _CadastrarUsuarioScreenState extends State<CadastrarUsuarioScreen> {
                                       color: Colors.black12, blurRadius: 5)
                                 ]),
                             child: TextField(
+                              controller: _nomeController,
                               decoration: InputDecoration(
                                   border: InputBorder.none,
                                   icon: Icon(
@@ -87,6 +96,7 @@ class _CadastrarUsuarioScreenState extends State<CadastrarUsuarioScreen> {
                                       color: Colors.black12, blurRadius: 5)
                                 ]),
                             child: TextField(
+                              controller: _emailController,
                               decoration: InputDecoration(
                                   border: InputBorder.none,
                                   icon: Icon(
@@ -111,6 +121,7 @@ class _CadastrarUsuarioScreenState extends State<CadastrarUsuarioScreen> {
                                       color: Colors.black12, blurRadius: 5)
                                 ]),
                             child: TextField(
+                              controller: _senhaController,
                               decoration: InputDecoration(
                                   border: InputBorder.none,
                                   icon: Icon(
@@ -130,7 +141,19 @@ class _CadastrarUsuarioScreenState extends State<CadastrarUsuarioScreen> {
                       EdgeInsets.only(top: 20, bottom: 20, left: 20, right: 20),
                   child: InkWell(
                     borderRadius: BorderRadius.circular(20),
-                    onTap: () {},
+                    onTap: () {
+                      Usuario novoUsuario = Usuario(
+                        nome: _nomeController.text,
+                        email: _emailController.text,
+                        senha: _senhaController.text
+                      );
+                      us.addUsuario(novoUsuario);
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => HomeScreen(),
+                        ),
+                      );
+                    },
                     splashColor: Colors.red,
                     highlightColor: Colors.red,
                     child: Container(
