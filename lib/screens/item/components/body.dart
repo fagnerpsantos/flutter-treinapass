@@ -35,11 +35,7 @@ class _BodyState extends State<Body> {
               children: <Widget>[
                 Text(
                   'Todos os itens',
-                  style: GoogleFonts.nunito(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                    color: kBlackColor,
-                  ),
+                  style: Theme.of(context).textTheme.bodyText1,
                 ),
               ],
             )

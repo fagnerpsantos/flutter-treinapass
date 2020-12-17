@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:treina_pass/screens/constants/color_contant.dart';
+import 'package:treina_pass/screens/cadastrar_usuario/cadastrar_usuario_screen.dart';
 
 import 'screens/home/home_screen.dart';
 
@@ -13,48 +13,44 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           brightness: Brightness.dark,
           primaryColor: Colors.red,
+          iconTheme: IconThemeData(
+            color: Colors.white
+          ),
           buttonTheme: ButtonThemeData(
-              buttonColor: Colors.blueAccent
+              buttonColor: Colors.redAccent
           ),
           floatingActionButtonTheme: FloatingActionButtonThemeData(
-              backgroundColor: Colors.blueAccent,
+              backgroundColor: Colors.red,
               foregroundColor: Colors.white
           ),
           textTheme: TextTheme(
               bodyText1: TextStyle(
                   fontFamily: 'Montserrat',
-                  fontSize: 18,
+                  fontSize: 15,
                   fontWeight: FontWeight.bold,
                   color: Colors.white
               ),
               headline1: TextStyle(
                   fontFamily: 'Montserrat',
                   fontSize: 16,
-                  color: Colors.blueAccent,
+                  color: Colors.white,
                   fontWeight: FontWeight.bold
               ),
-              headline2: TextStyle(
-                  fontFamily: "Montserrat",
-                  fontSize: 16,
-                  height: 1.5,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.blueAccent
-              ),
-              headline3: TextStyle(
-                  fontFamily: "Montserrat",
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.blueAccent
-              ),
-              headline4: TextStyle(
-                  fontFamily: "Montserrat",
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black
-              )
+            headline2: TextStyle(
+                fontFamily: 'Montserrat',
+                fontSize: 16,
+                color: Colors.white,
+                fontWeight: FontWeight.normal
+            ),
+            headline3: TextStyle(
+                fontFamily: 'Montserrat',
+                fontSize: 12,
+                color: Colors.redAccent,
+                fontWeight: FontWeight.w700
+            ),
           )
       ),
-      home: HomeScreen(),
+      home: CadastrarUsuarioScreen(),
     );
   }
 }

@@ -25,6 +25,9 @@ class ItemService {
       titulo: item.titulo,
       descricao: item.descricao,
       senha: item.senha,
+      username: item.username,
+      url: item.url,
+      anotacao: item.anotacao
     );
     DbUtil.insertData('item', newItem.toMap());
 

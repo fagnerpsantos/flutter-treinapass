@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:treina_pass/models/item.dart';
-import 'package:treina_pass/screens/constants/color_contant.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 Widget cardItem(BuildContext context, int index, Item item) {
@@ -31,16 +30,11 @@ Widget cardItem(BuildContext context, int index, Item item) {
               children: <Widget>[
                 Text(
                   item.titulo,
-                  style: GoogleFonts.nunito(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700),
+                  style: Theme.of(context).textTheme.headline1,
                 ),
                 Text(
-                  item.descricao,
-                  style: GoogleFonts.nunito(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white),
+                  item.username,
+                  style: Theme.of(context).textTheme.headline2,
                 ),
               ],
             )

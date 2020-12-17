@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:treina_pass/models/item.dart';
 import 'package:treina_pass/screens/components/card_item.dart';
-import 'package:treina_pass/screens/constants/color_contant.dart';
 import 'package:treina_pass/screens/item/item_screen.dart';
 import 'package:treina_pass/services/item_service.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -14,7 +12,6 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   ItemService ts = ItemService();
   Future<List> _loadItens;
-  Future<List> _loadCategorias;
   List<Item> _itens;
 
   @override
@@ -51,11 +48,7 @@ class _BodyState extends State<Body> {
                       },
                       child: Text(
                         'ver todas',
-                        style: GoogleFonts.nunito(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w700,
-                          color: kBlueColor,
-                        ),
+                        style: Theme.of(context).textTheme.headline3,
                       ),
                     ),
                   ],

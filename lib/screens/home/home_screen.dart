@@ -17,11 +17,46 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Body(),
       floatingActionButton: buildFloatActionButton(context),
       appBar: AppBar(
-        title: Text(
-          "TreinaPass"
+        title: Text("TreinaPass"),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountEmail: Text("user@mail.com"),
+              accountName: Text("Seu zé"),
+              currentAccountPicture: CircleAvatar(
+                child: Text("SZ"),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text("Minha conta"),
+              onTap: () {
+                Navigator.pop(context);
+                //Navegar para outra página
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.enhanced_encryption),
+              title: Text("Minhas senhas"),
+              onTap: () {
+                Navigator.pop(context);
+                //Navegar para outra página
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.favorite),
+              title: Text("Favoritos"),
+              onTap: () {
+                Navigator.pop(context);
+                //Navegar para outra página
+              },
+            ),
+          ],
         ),
       ),
     );
   }
-
 }

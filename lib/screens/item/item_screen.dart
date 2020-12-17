@@ -14,10 +14,6 @@ class _ItemScreenState extends State<ItemScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: IconThemeData(
-            color: Colors.black
-        ),
-
       ),
       body: Body(),
     );

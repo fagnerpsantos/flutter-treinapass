@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:treina_pass/models/item.dart';
-import 'package:treina_pass/screens/constants/color_contant.dart';
 import 'package:treina_pass/screens/home/home_screen.dart';
 import 'package:treina_pass/services/item_service.dart';
 
@@ -16,14 +15,12 @@ class CadastrarItemScreen extends StatefulWidget {
 class _CadastrarItemScreenState extends State<CadastrarItemScreen> {
   ItemService ts = ItemService();
   Item item;
-  Future<List> _loadCategorias;
   final _tituloController = TextEditingController();
   final _descricaoController = TextEditingController();
   final _senhaController = TextEditingController();
   final _usernameController = TextEditingController();
   final _urlController = TextEditingController();
   final _anotacaoController = TextEditingController();
-  DateTime selectedDate = DateTime.now();
 
   @override
   void initState() {
@@ -49,15 +46,16 @@ class _CadastrarItemScreenState extends State<CadastrarItemScreen> {
                   decoration: InputDecoration(labelText: "Título"),
                 ),
                 TextFormField(
-                  controller: _descricaoController,
-                  keyboardType: TextInputType.text,
-                  decoration: InputDecoration(labelText: "Descrição"),
-                ),
-                TextFormField(
                   controller: _usernameController,
                   keyboardType: TextInputType.text,
                   decoration: InputDecoration(labelText: "Username"),
                 ),
+                TextFormField(
+                  controller: _descricaoController,
+                  keyboardType: TextInputType.text,
+                  decoration: InputDecoration(labelText: "Descrição"),
+                ),
+
                 TextFormField(
                   controller: _senhaController,
                   keyboardType: TextInputType.text,
@@ -81,12 +79,13 @@ class _CadastrarItemScreenState extends State<CadastrarItemScreen> {
                     child: RaisedButton(
                       onPressed: () {
                         Item newItem = Item(
-                            titulo: _tituloController.text,
-                            descricao: _descricaoController.text,
-                        senha: _senhaController.text,
-                        username: _usernameController.text,
-                        url: _urlController.text,
-                        anotacao: _anotacaoController.text);
+                          titulo: _tituloController.text,
+                          descricao: _descricaoController.text,
+                          senha: _senhaController.text,
+                          username: _usernameController.text,
+                          url: _urlController.text,
+                          anotacao: _anotacaoController.text
+                        );
                         ts.addItem(newItem);
                         Navigator.of(context).push(
                           MaterialPageRoute(
@@ -94,7 +93,6 @@ class _CadastrarItemScreenState extends State<CadastrarItemScreen> {
                           ),
                         );
                       },
-                      color: Colors.red,
                       child: Text(
                         "Cadastrar",
                         style: TextStyle(color: Colors.white, fontSize: 16),
