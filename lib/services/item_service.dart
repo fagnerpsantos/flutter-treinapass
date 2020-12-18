@@ -1,9 +1,12 @@
 import 'package:treina_pass/models/item.dart';
 import 'package:treina_pass/utils/db_util.dart';
+import 'package:treina_pass/utils/encrypt_util.dart';
+import 'package:treina_pass/utils/secure_storage_util.dart';
 
 
 class ItemService {
   List<Item> _itemList = [];
+  EncryptUtil en = EncryptUtil();
 
   Future<List> getAllItens() async {
     final dataList = await DbUtil.getData('item');
@@ -20,15 +23,17 @@ class ItemService {
   }
 
   void addItem(Item item){
+  var senhaCriptografada = en.encryptString(item.senha);
     final newItem = Item(
       id: item.id,
       titulo: item.titulo,
       descricao: item.descricao,
-      senha: item.senha,
+      senha: senhaCriptografada,
       username: item.username,
       url: item.url,
       anotacao: item.anotacao
     );
+
     DbUtil.insertData('item', newItem.toMap());
 
   }

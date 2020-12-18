@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:treina_pass/models/item.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:treina_pass/screens/senha_item/senha_item_screen.dart';
 
 Widget cardItem(BuildContext context, int index, Item item) {
   return Container(
@@ -16,31 +16,40 @@ Widget cardItem(BuildContext context, int index, Item item) {
               offset: Offset(0.0, 8.0))
         ],
         color: Colors.black12),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
-        Row(
-          children: <Widget>[
-            SizedBox(
-              width: 20,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
+    child: InkWell(
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (_) => SenhaItemScreen(),
+          ),
+        );
+      },
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+            Row(
               children: <Widget>[
-                Text(
-                  item.titulo,
-                  style: Theme.of(context).textTheme.headline1,
+                SizedBox(
+                  width: 20,
                 ),
-                Text(
-                  item.username,
-                  style: Theme.of(context).textTheme.headline2,
-                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      item.titulo,
+                      style: Theme.of(context).textTheme.headline1,
+                    ),
+                    Text(
+                      item.senha,
+                      style: Theme.of(context).textTheme.headline2,
+                    ),
+                  ],
+                )
               ],
-            )
-          ],
-        ),
-      ],
+            ),
+        ],
+      ),
     ),
   );
 }

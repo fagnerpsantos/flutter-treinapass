@@ -17,9 +17,6 @@ class DbUtil {
         titulo VARCHAR(50), descricao VARCHAR(50), senha TEXT, 
         username VARCHAR(50), url VARCHAR(255), anotacao TEXT)"""
     );
-    db.execute("""CREATE TABLE usuario (id INTEGER PRIMARY KEY AUTOINCREMENT, 
-        nome VARCHAR(50), email VARCHAR(50), senha TEXT"""
-    );
   }
   static Future<void> insertData(String table, Map<String, Object> dados) async{
     final db = await DbUtil.database();

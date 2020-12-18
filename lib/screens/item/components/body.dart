@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:treina_pass/models/item.dart';
 import 'package:treina_pass/screens/components/card_item.dart';
-import 'package:treina_pass/screens/constants/color_contant.dart';
 import 'package:treina_pass/services/item_service.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class Body extends StatefulWidget {
   @override
