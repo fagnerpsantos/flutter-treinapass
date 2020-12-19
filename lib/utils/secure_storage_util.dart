@@ -4,7 +4,7 @@ class SecureStorageUtil {
   final _storage = FlutterSecureStorage();
 
 
-  Future<void> insertData(String key, String value) async {
+  Future insertData(String key, String value) async {
     var writeData = await _storage.write(key: key, value: value);
     return writeData;
   }

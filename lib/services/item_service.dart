@@ -22,17 +22,17 @@ class ItemService {
     return _itemList;
   }
 
-  void addItem(Item item){
-  var senhaCriptografada = en.encryptString(item.senha);
-    final newItem = Item(
-      id: item.id,
-      titulo: item.titulo,
-      descricao: item.descricao,
-      senha: senhaCriptografada,
-      username: item.username,
-      url: item.url,
-      anotacao: item.anotacao
-    );
+  void addItem(Item item, String senha) async{
+    var senhaCriptografada = await en.encryptString(item.senha, senha);
+      final newItem = Item(
+        id: item.id,
+        titulo: item.titulo,
+        descricao: item.descricao,
+        senha: senhaCriptografada,
+        username: item.username,
+        url: item.url,
+        anotacao: item.anotacao
+      );
 
     DbUtil.insertData('item', newItem.toMap());
 
