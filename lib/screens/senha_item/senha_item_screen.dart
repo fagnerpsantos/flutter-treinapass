@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:treina_pass/screens/item/item_screen.dart';
 import 'package:treina_pass/utils/secure_storage_util.dart';
 
 class SenhaItemScreen extends StatefulWidget {
@@ -122,20 +123,19 @@ class _SenhaItemScreenState extends State<SenhaItemScreen> {
                         child: InkWell(
                           borderRadius: BorderRadius.circular(20),
                           onTap: () async {
-                            // SharedPreferences prefs = await SharedPreferences.getInstance();
-
                             if (_senha == _senhaController.text) {
-                              print("pode ir");
+                              Navigator.of(context).pushReplacement(
+                                MaterialPageRoute(
+                                  builder: (_) => ItemScreen(),
+                                ),
+                              );
                             } else {
-                              print("não");
+                              Navigator.of(context).pushReplacement(
+                                MaterialPageRoute(
+                                  builder: (_) => SenhaItemScreen(),
+                                ),
+                              );
                             }
-
-                            // var senhaStorage = prefs.getString('senha');
-                            // if (senhaStorage == _senhaController.text) {
-                            //   print("pode ir");
-                            // } else {
-                            //   print("não");
-                            // }
 
                           },
                           splashColor: Colors.red,

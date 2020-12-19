@@ -97,7 +97,7 @@ class _CadastrarItemScreenState extends State<CadastrarItemScreen> {
                                   anotacao: _anotacaoController.text
                               );
                               ts.addItem(newItem, _senha);
-                              Navigator.of(context).push(
+                              Navigator.of(context).pushReplacement(
                                 MaterialPageRoute(
                                   builder: (_) => HomeScreen(),
                                 ),

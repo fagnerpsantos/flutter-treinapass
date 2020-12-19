@@ -17,7 +17,7 @@ class EncryptUtil {
     return encrypted.base64;
   }
 
-  String decryptString(String item){
+  String decryptString(String item, String senha){
 
   }
 }
