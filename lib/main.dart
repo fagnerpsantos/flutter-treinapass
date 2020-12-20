@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:treina_pass/screens/cadastrar_usuario/cadastrar_usuario_screen.dart';
+import 'package:treina_pass/screens/home/home_screen.dart';
 
 
 void main()=>runApp(MyApp());

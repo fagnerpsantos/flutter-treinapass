@@ -5,7 +5,7 @@ import 'package:treina_pass/screens/senha_item/senha_item_screen.dart';
 Widget cardItem(BuildContext context, int index, Item item) {
   return Container(
     margin: EdgeInsets.only(bottom: 8, left: 10, right: 10),
-    height: 68,
+    height: 80,
     decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
         boxShadow: [
@@ -20,7 +20,7 @@ Widget cardItem(BuildContext context, int index, Item item) {
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (_) => SenhaItemScreen(),
+            builder: (_) => SenhaItemScreen(idLogin: item.id,),
           ),
         );
       },
@@ -39,6 +39,10 @@ Widget cardItem(BuildContext context, int index, Item item) {
                     Text(
                       item.titulo,
                       style: Theme.of(context).textTheme.headline1,
+                    ),
+                    Text(
+                      item.username,
+                      style: Theme.of(context).textTheme.headline2,
                     ),
                     Text(
                       item.senha,

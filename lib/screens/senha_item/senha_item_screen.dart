@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:treina_pass/screens/detalhes_item/detalhes_item_screen.dart';
 import 'package:treina_pass/screens/item/item_screen.dart';
 import 'package:treina_pass/utils/secure_storage_util.dart';
 
 class SenhaItemScreen extends StatefulWidget {
+  int idLogin;
+
+  SenhaItemScreen({this.idLogin});
+
   @override
   _SenhaItemScreenState createState() => _SenhaItemScreenState();
 }
@@ -126,7 +131,10 @@ class _SenhaItemScreenState extends State<SenhaItemScreen> {
                             if (_senha == _senhaController.text) {
                               Navigator.of(context).pushReplacement(
                                 MaterialPageRoute(
-                                  builder: (_) => ItemScreen(),
+                                  builder: (_) => DetalhesItemScreen(
+                                    idLogin: widget.idLogin,
+                                    senha: _senha,
+                                  ),
                                 ),
                               );
                             } else {

@@ -38,6 +38,24 @@ class ItemService {
 
   }
 
+  Future<Item> getItem(int id, String senha) async {
+    String whereString = "id = ?";
+    List<dynamic> whereArgumento = [id];
+    final dataList = await DbUtil.getDataWhere('item',
+        whereString, whereArgumento);
+    String senhaDescriptografada = await en.decryptString(dataList.first["senha"],
+        senha);
+    return Item(
+      id: dataList.first["id"],
+      titulo: dataList.first["titulo"],
+      descricao: dataList.first["descricao"],
+      senha: senhaDescriptografada,
+      username: dataList.first["username"],
+      url: dataList.first["url"],
+      anotacao: dataList.first["anotacao"],
+    );
+  }
+
   void editItem(int id, Item item) async {
     final newItem = Item(
       id: item.id,
